@@ -156,14 +156,40 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+	var project2 = $("#caro-project-2");
+	project2.owlCarousel({
+		autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		items : 4,
+		nav: true,
+		navText: ["<span class='fa fa-chevron-left'></span>", "<span class='fa fa-chevron-right'></span>"],
+		dots: false,
+		loop: true,
+		responsive:{
+			0:{
+				items:1
+			},
+			768:{
+				items:2
+			},
+			1000:{
+				items:4
+			}
+		}
+	});
 	
 	/* =================================
 	FAQ
 	=================================== */	
-	$('.panel-heading a').on('click', function() {
-		$('.panel-heading').removeClass('active');
-		$(this).parents('.panel-heading').addClass('active');
-	});
+	$(".panel").on("show.bs.collapse hide.bs.collapse", function(e) {
+	    if (e.type=='show'){
+	      $(this).addClass('active');
+	    }else{
+	      $(this).removeClass('active');
+	    }
+  	}); 
 	
 	/* =================================
 	MAGNIFIC POPUP

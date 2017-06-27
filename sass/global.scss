@@ -315,6 +315,7 @@ i, cite, em, var, address, dfn {
 }
 .section {
 	position: relative;
+	> .container-fluid,
 	> .container{
 		padding-top: 80px;
 		padding-bottom: 80px;
@@ -369,8 +370,14 @@ i, cite, em, var, address, dfn {
 .bglight{
 	background-color: $color_1;
 }
+.bg-1{
+	background-color: $color_1;
+}
 .bgwhite{
 	background-color: $white;
+}
+.colorwhite{
+	color: $white !important;
 }
 .section-heading{
 	font-size: 30px;
@@ -411,6 +418,14 @@ i, cite, em, var, address, dfn {
 			margin-right: 0;
 		}
 	}
+}
+.subheading{
+	margin-top: -20px;
+	margin-bottom: 80px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: lighten($font__body-color, 20%);
 }
 .section-subheading{
 	@extend h5;
@@ -577,13 +592,13 @@ ul.bull{
 		&:before{
 			content: "\f105";
 		    font: normal normal normal 14px/1 FontAwesome;
-		   position: absolute;
+		    position: absolute;
 		    left: 0;
 		    top: 2px;
 		    display: inline-block;
 		    vertical-align: top;
-		    font-size: 14px;
-		    color: $color_2;
+		    font-size: 16px;
+		    color: $color_1;
 		}
 	}
 }
@@ -745,18 +760,18 @@ ul.circle{
 		margin: 0;
 		font-weight: 700;
 		a{
-			color: $black_1;
+			color: $black_3;
 			display: block;
 			padding: 15px 20px;
 			margin-bottom: 5px;
 			background-color: $color_4;
 			border-left: 5px solid transparent;
 			&:hover{
-				border-color: $color_3;
+				border-color: $color_1;
 			}
 		}
 		&.active a{
-			border-color: $color_3;
+			border-color: $color_1;
 		}
 	}
 }
@@ -792,9 +807,9 @@ ul.circle{
 	        -webkit-transition: all .3s ease;
     		transition: all .3s ease;
 		    &:hover{
-				background-color: $color_3;
-				color: $white;
-				border-color: $color_3;
+				background-color: $color_1;
+				/*color: $white;*/
+				border-color: $color_1;
 		    }
 		}
 	}
@@ -803,6 +818,7 @@ ul.circle{
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: $color_1;
 }
+
 
 /* ==========================
 Back To Top Section

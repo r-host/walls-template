@@ -1,3 +1,30 @@
+.media-anim{
+	.media{
+		width: 100%;
+		margin-bottom: 30px;
+		position: relative;
+		background-color: $color_1;
+		img{
+			-webkit-transform: scale(1,1);
+			-ms-transform: scale(1,1);
+			        transform: scale(1,1);
+			-webkit-transition: 0.4s all linear;
+			        transition: 0.4s all linear;
+		}
+	}
+	&:hover{
+		.media img{
+			@include opacity(.3);
+			-webkit-transform: scale(1.05,1.05);
+			-ms-transform: scale(1.05,1.05);
+			        transform: scale(1.05,1.05);
+			-webkit-transition-timing-function: ease-out;
+			        transition-timing-function: ease-out;
+			-webkit-transition-duration: 250ms;
+			        transition-duration: 250ms;
+		}
+	}
+}
 /* 2.1. PRELOADER */
 .animationload {
     position: fixed;
@@ -116,7 +143,7 @@
 			&:hover,
 			&.active{
 				background: $color_1;
-				color: #fff;
+				color: $font__body-color;
 			}
 		}
 		&:first-child > a, &:first-child > span {
@@ -131,12 +158,12 @@
 	> .active{
 		> a{
 			background: $color_1;
-			color: #fff;
+			color: $font__body-color;
 		}
 	}
 	> .active > a, > .active > span, > .active > a:hover, > .active > span:hover, > .active > a:focus, > .active > span:focus{
 		background: $color_1;
-		color: #fff;
+		color: $font__body-color;
 
 	}
 }
@@ -400,7 +427,73 @@
 	  		color: $color_1;
 	  	}
 	}
+	&.layout-2{
+		text-align: center;
+		.icon{
+			float: none;
+			display: block;
+		}
+		.body-content{
+		  	margin-left: 0;
+		}
+		.title{
+			&:after{
+				margin: 7% auto;
+			}
+		}
+	}
+}
+
+/* 2.5. BOX ICON 6 **/
+.box-icon-6{
+	text-align: left;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;  
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	min-height: 200px;
+	padding: 30px;
 	
+	.icon{
+		font-size: 35px;
+		min-height: 65px;
+		color: $color_1;
+		width: 65px;
+    	max-width: 65px;
+	    line-height: 1.2;
+	}
+	.infobox{
+      	flex: 1;
+	}
+	.title{
+		margin-bottom: 15px;
+		font-size: 20px;
+		color: #000;
+	    margin-top: 0;
+	}
+	.text{
+	  color: #626262;
+	}
+	&.layout-2{
+		padding: 30px 0;
+		min-height: auto;
+		.icon{
+			font-size: 35px;
+			width: 65px;
+			height: 65px;
+			color: $color_1;
+
+		    border: 1px solid #ccc;
+		    text-align: center;
+		    @include border-radius(50%);
+	        padding-top: 10px;
+    		margin-right: 20px;
+		}
+	}
 }
 
 /* 2.5. BOX IMAGE 1 */
@@ -637,10 +730,88 @@
 	}
 }
 
+/* 2.8. BOX IMAGE 5 **/
+.team-2{
+	position: relative;
+	margin-bottom: 30px;
+	text-align: left;
+
+	.media{
+		display: block;
+		position: relative;
+		background-color: rgba($color_1, 0);
+		overflow: hidden;
+		margin-bottom: 20px;
+		position: relative;
+
+		.social-icon{
+			display: flex;
+			justify-content: center;
+			position: absolute;
+			bottom: 0;
+			@include opacity(0);
+			width: 100%;
+			margin-left: 0;
+			@include transisi(.3s);
+			li{
+			    line-height: 2.2;
+				a{
+					@include border-radius(50%);
+					background-color: $white;
+					&:hover{
+						color: $color_1;
+					}
+				}
+			}
+		}
+		img{
+			-webkit-transform: scale(1,1);
+			-ms-transform: scale(1,1);
+			        transform: scale(1,1);
+			-webkit-transition: 0.4s all linear;
+			        transition: 0.4s all linear;
+		}
+	}
+	&:hover{
+		.media{
+			background-color: rgba($color_1, .9);
+			img{
+				@include opacity(.2);
+				-webkit-transform: scale(1.05,1.05);
+				-ms-transform: scale(1.05,1.05);
+				        transform: scale(1.05,1.05);
+				-webkit-transition-timing-function: ease-out;
+				        transition-timing-function: ease-out;
+				-webkit-transition-duration: 250ms;
+				        transition-duration: 250ms;
+			}
+			.social-icon{
+				bottom: 40px;
+				@include opacity(1);
+			}
+		} 
+	}
+	.body{
+  		overflow: hidden;
+  		color: $font__body-color;
+	}
+	.title{
+		@extend h4;
+		margin-bottom: 0;
+	}
+	.position{
+  		color: $color_1;
+  		font-size: 13px;
+	}
+	
+}
+
+
 /* 2.8. BOX IMAGE 4 **/
 .feature-box-8{
   position: relative;
   padding-bottom: 40px;
+  @extend .media-anim;
   .media{
     width: 100%;
     margin-bottom: 30px;
@@ -648,14 +819,21 @@
   .body{
     position: relative;
     .title{
-      	color: $color_2;
+      	color: $font__body-color;
 	    margin-bottom: 10px;
 	    text-transform: uppercase;
 	    font-weight: 700;
 	    letter-spacing: .2px;
 	    display: inline-block;
     }
-
+  }
+  &.light{
+	.body{
+	  color: $white;
+   	 .title{
+      		color: $white;
+      	}
+  	}	
   }
 }
 
@@ -672,7 +850,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: rgba($color_2, .8);
+		background: rgba($font__body-color, .8);
 		padding: 20px;
 		height: 60%;
 		@include transisi(.3s);
@@ -886,8 +1064,8 @@
   }
   .body{
     padding-left: 200px;
-    font-size: 2.7rem;
-    line-height: normal;
+    font-size: 20px;
+    line-height: 1.6;
   }
   .title{
     color: #000;
@@ -1214,7 +1392,6 @@
 	.panel-default{
 		border-color: transparent;
 		> .panel-heading {
-		    color: $white;
 		    background-color: $color_1;
 		    border-color: #ddd;
 		    border:0;
@@ -1230,25 +1407,21 @@
 				position: absolute;
 				top: 10px;
 				right: 20px;
+			    line-height: 1;
 			}
 			+ .panel-collapse > .panel-body {
 			    border-top-color: transparent;
 			}
-			&.active{
+			
+		}
+		&.active{
+			> .panel-heading {
 				background-color: $color_4;
-    		 	color: $color_1;
+			 	color: $color_2;
 				&:before {
-				    color: $color_1;
+				    color: $color_2;
 				    content: "\002D";
 				}
-			}
-		}
-		&:hover{
-			> .panel-heading {
-			    color: $color_2;
-			}
-			> .panel-heading.active {
-			    color: $color_1;
 			}
 		}
 		
@@ -1344,6 +1517,7 @@
 	&.best{
 		.price{
 			background-color:$color_2;
+			color: $white;
 		}
 	}
 	.price{
@@ -1351,7 +1525,7 @@
 		font-size:80px;
 		background-color:$color_1;
 		font-size: 36px;
-		color:#fff;
+		color: $font__body-color;
 		font-weight: 700;
 		
 		sup{
@@ -1415,17 +1589,17 @@
 	        text-align: center;
 	        > a{
 	        padding: 20px 0;
-	        	color: $white;
+	        	color: $font__body-color;
     	        margin-right: 0;
 	    	    border-radius: 0;
 	    	    font-weight: 700;
 	    	    &:hover{
 	    	    	background-color: $color_2;
+	    	    	color: $white;
 	    	    }
 	        }
 	        &.active > a, &.active > a:hover, &.active > a:focus{
-	        	color: $color_1;
-			    cursor: default;
+	        	cursor: default;
 			    background-color: $color_4;
 	        }
 		}

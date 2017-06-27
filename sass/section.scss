@@ -11,8 +11,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: $color_2;
-	opacity: .6;
+	background-color: rgba($font__body-color, .5);
 }
 /* 6.1 - About */
 .banner-page.about{
@@ -137,12 +136,27 @@ dl.hiw{
 .banner-page.project{
 	background: url('../images/bgoverlay-1.jpg') bottom center no-repeat;
 }
-.section.project{
+/*.section.project{
 	background: url('../images/bgoverlay-1.jpg') bottom center no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 }
 .section.project:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $color_3;
+	opacity: .9;
+}*/
+.bg-dark{
+	background: url('../images/bgoverlay-1.jpg') bottom center no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.bg-dark:before{
 	content: '';
 	position: absolute;
 	top: 0;
@@ -228,7 +242,6 @@ dl.hiw{
 	   	margin-top: 20px;
 	   	margin-bottom: 10px;
 	   	font-weight: 700;
-	   	color: $color_1;
 	}
 	.meta{
 		@extend .meta-blog;
@@ -479,29 +492,6 @@ dl.hiw{
 }
 
 /* 6.7 Section - CTA */
-/*.section.cta{
-	background: url('../images/bgoverlay-2.jpg') bottom center no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	padding: 80px 0;
-	.cta-info{
-		width: 60%;
-		margin: 0 auto;
-		text-align: center;
-		font-family: $font_1;
-		color: $white;
-	}
-}
-.section.cta:before{
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-color: $color_1;
-	opacity: .9;
-}*/
 .section.cta{
   padding: 50px 0;
   background-color: $color_1;
@@ -579,6 +569,7 @@ dl.hiw{
 	display: none !important;
 }
 #caro-project,
+#caro-project-2,
 #owl-testimony{
 	.owl-controls .owl-nav [class*=owl-] {
 	    color: $color_1;
@@ -618,11 +609,27 @@ dl.hiw{
 	}
 }
 
-#caro-project{
+.bg-dark{
 	.owl-controls .owl-nav [class*=owl-] {
+		&:hover {
+		    color: $white !important;
+		    border-color: $white !important;
+		}
+	}
+}
+#caro-project-2{
+	/*.owl-controls .owl-nav [class*=owl-] {
 		&:hover {
 		    color: $white;
 		    border-color: $white;
+		}
+	}*/
+	.owl-nav{
+		position: relative;
+		z-index: 2;
+		.owl-prev,
+		.owl-next{
+			position: static;
 		}
 	}
 }
@@ -640,9 +647,26 @@ dl.hiw{
 
 .testimony {
 	padding: 80px 0;
+    
+	.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+	    background: $color_2;
+	}
 
-	
-
+}
+.bgtestimony{
+	background: url(../images/about-img-1.jpg) bottom center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    &:before{
+    	content: '';
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    background-color: $color_1;
+	    opacity: .9;
+    }
 }
 
 
